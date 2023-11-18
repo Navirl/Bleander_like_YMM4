@@ -7,11 +7,11 @@ Dependancies:
  - VOICEVOX
  - YMM4 (for json file of character settings)
 
-1. make character settings in YMM4. 
-2. copy character settings file to folder cloned this repository. 
+1. Make character settings in YMM4. 
 <img src="images\YMM4.png" width="70%">
 
-3. launch Blender and VOICEVOX.
-4. install addon.py to blender as Addon.
-5. open Tools panel in video sequenser, and insert file path.
-6. click "Make meta strip", and done!
+2. Copy character settings file to the folder cloned this repository. settings file name is `YukkuriMovieMaker.Settings.CharacterSettings.json`. Don't change name.
+3. Launch Blender and VOICEVOX.
+4. Install addon.py to blender as Addon.
+5. Open Tools panel in video sequenser, and insert file path.
+6. Click "Make meta strip", and done!
