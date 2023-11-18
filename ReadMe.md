@@ -10,6 +10,7 @@ Dependancies:
 1. make character settings in YMM4. 
 2. copy character settings file to folder cloned this repository. 
 <img src="images\YMM4.png" width="70%">
+
 3. launch Blender and VOICEVOX.
 4. install addon.py to blender as Addon.
 5. open Tools panel in video sequenser, and insert file path.
