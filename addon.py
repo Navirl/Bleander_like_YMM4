@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Insert Text",
+    "name": "like_YMM4",
     "blender": (2, 80, 0),
     "category": "Object",
 }
