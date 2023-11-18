@@ -151,6 +151,7 @@ def make_text_strip(text, chara_setting, soundstrip, seq, context):
     text_outline.quality = 1
     text_outline.use_only_boost = True
     text_outline.color_multiply = 20  # Outline opacity
+    text_outline.multiply_alpha = True
     text_outline.blend_type = "ALPHA_OVER"
 
     seq.active_strip = text_outline
