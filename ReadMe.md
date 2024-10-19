@@ -13,5 +13,5 @@ Dependancies:
 2. Copy character settings file to the folder cloned this repository. settings file name is `YukkuriMovieMaker.Settings.CharacterSettings.json`. Don't change name.
 3. Launch Blender and VOICEVOX.
 4. Install addon.py to blender as Addon.
-5. Open Tools panel in video sequenser, and insert file path.
+5. Open Tools panel in video sequenser, and insert csv file path.
 6. Click "Make meta strip", and done!
