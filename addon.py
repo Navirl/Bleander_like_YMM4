@@ -101,7 +101,7 @@ def make_sound_strip(text, chara_setting, frame_start, seq, context):
     seq.active_strip = sound_strip
     bpy.ops.sound.pack()
 
-    return sound_strip
+    return (sound_strip, frame_start)
 
 def make_text_strip(text, chara_setting, soundstrip, seq, context):
     # 字幕の追加
@@ -157,7 +157,9 @@ def make_text_strip(text, chara_setting, soundstrip, seq, context):
     seq.active_strip = text_outline
     bpy.ops.sequencer.strip_modifier_add(type="COLOR_BALANCE")
     outlinecolor = hex_to_rgb(chara_setting["stylecolor"])
-    text_outline.modifiers["Color Balance"].color_balance.gain[0] = outlinecolor[1]
+    # outlinecolor = (outlinecolor[1], outlinecolor[2], outlinecolor[3])
+    # text_outline.modifiers["Color Balance"].color_balance.gain = outlinecolor
+    text_outline      .modifiers["Color Balance"].color_balance.gain[0] = outlinecolor[1]
     text_outline.modifiers["Color Balance"].color_balance.gain[1] = outlinecolor[2]
     text_outline.modifiers["Color Balance"].color_balance.gain[2] = outlinecolor[3]
 
@@ -166,7 +168,7 @@ def make_text_strip(text, chara_setting, soundstrip, seq, context):
 # 文字列拾ってテキストと音声作る関数
 def make_meta_strip(text, chara_setting, frame_start, seq, context):
 
-    sound_strip = make_sound_strip(text, chara_setting, frame_start, seq, context)
+    sound_strip, frame_start = make_sound_strip(text, chara_setting, frame_start, seq, context)
     text_strip = make_text_strip(text, chara_setting, sound_strip, seq, context)
 
     # metastrip作成
@@ -177,6 +179,8 @@ def make_meta_strip(text, chara_setting, frame_start, seq, context):
     sound_strip.select = True
 
     bpy.ops.sequencer.meta_make()
+
+    return frame_start
 
 
 class VOICEVOX_OT_make_meta_strip(bpy.types.Operator):
@@ -225,7 +229,7 @@ class VOICEVOX_OT_make_meta_strip(bpy.types.Operator):
                                 chara_data_cache[script_line[0]] = chara_setting
 
                     # script_line[1]にテキスト
-                    make_meta_strip(script_line[1], chara_setting, frame_start, seq, context)
+                    frame_start = make_meta_strip(script_line[1], chara_setting, frame_start, seq, context)
 
         return {'FINISHED'}
     
